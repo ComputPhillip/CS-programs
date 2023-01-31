@@ -1,4 +1,4 @@
-# Test Questions
+# How to Use Pointers Effectively
 
 ## You want to know how much memory to set aside for the program
 ### array pointers
