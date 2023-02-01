@@ -1,5 +1,5 @@
 //author: Phillip Gooden
-//submitted: 01-30-2023
+//submitted: 02-01-2023
 //using three array(string names, int grades, and sum[ROW])
 //calculate the sudents sum[ROW] test scores and display it
 #include <fstream>
@@ -11,6 +11,7 @@ using namespace std;
 
 const int ROW{5};
 const int COL{5};
+//string column firstName[0] lastName[1]
 const int sCOL{2};
 
 void Read(int scores[ROW][COL], string names[ROW][sCOL]);
@@ -55,19 +56,31 @@ void Calculate(int scores[ROW][COL], double sum[ROW], double average[ROW]){
                 sum[i] = sum[i] + scores[i][j];
             }
             average[i] = sum[i] / COL;
-            //cout << endl;
         }
 }
 void Display(int scores[ROW][COL], string names[ROW][sCOL], double sum[ROW], double average[ROW]){
+    char Lettergrade;
     for(int i{0}; i < ROW; i++){
         for(int j{0}; j < sCOL; j++){
             cout << setw(10) << left << names[i][j] << ' ';
-            }
-            for(int k{0}; k < COL; k++){
-                cout << setw(3) << right << scores[i][k] << ' ';
-            }
-            
-            cout << "Average: " << setprecision(5) << average[i] << ' ';
-            cout << '\n';
         }
+        for(int k{0}; k < COL; k++){
+            cout << setw(3) << right << scores[i][k] << ' ';
+        }
+        cout << "Average: " << fixed << setprecision(2) << average[i] << ' ';
+        if (average[i] >= 90) {
+            Lettergrade = 'A';
+        }
+        else if (average[i] >= 80) {
+            Lettergrade = 'B';
+        }
+        else if (average[i] >= 70) {
+            Lettergrade = 'C';
+        }
+        else {
+            Lettergrade = 'F';
+        }
+        cout << "Letter Grade: " << Lettergrade << endl;
+    }
 }
+
