@@ -1,0 +1,30 @@
+# Binary Numbers and bitwise Operations to Compute Mathmatical Expressions
+
+## Why this way?
+- Using the bitwise operations can be useful in cases where we need to perform bitwise manipulation of data, such as extracting or setting individual bits in a binary number, or checking for the presence of certain bit patterns. These cases prove more efficinet and concise than using arithmetic or logical operators.
+## Shift Operators
+
+- The left shift operator << is a bitwise operator in C++ that shifts the bits of a binary number to the left by a specified number of positions. The effect of a left shift is to multiply the number by a power of 2, where the exponent of 2 is equal to the number of positions shifted.
+
+```
+#include <iostream>
+
+// Define a function that returns the nth power of 2
+constexpr int nth_power_of_2(int n) {
+    return 1 << n;
+}
+
+int main() {
+    // Declare a variable as a constexpr
+    constexpr int num_bits = 8;
+    
+    // Call the constexpr function at compile time
+    constexpr int power_of_2 = nth_power_of_2(3);
+    
+    // Print the results
+    std::cout << "The " << num_bits << " bits can represent " << power_of_2 << " values." << std::endl;
+
+    return 0;
+}
+```
+> *The code above* is an example, of a function returning the nth power of 2 using the left shift operator (<<) a bitwise operator that shift the bits of a binary number to the left.
